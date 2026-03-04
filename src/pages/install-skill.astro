@@ -1,0 +1,99 @@
+---
+const title = 'Install the VibeAny skill';
+const description = 'Install the VibeAny skill in under a minute to get deal search and alerts in OpenClaw.';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <style>
+      :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; }
+      body { margin: 0; color: #0f172a; background: #f8fafc; }
+      a { color: inherit; }
+      header { padding: 40px 24px 48px; text-align: center; }
+      nav { display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; font-size: 14px; }
+      nav a { text-decoration: none; color: #475569; }
+      main { max-width: 920px; margin: 0 auto; padding: 0 24px 80px; }
+      h1 { font-size: 40px; margin: 0 0 12px; }
+      h2 { margin: 0 0 12px; }
+      p { font-size: 18px; line-height: 1.6; margin: 0 0 16px; color: #1f2937; }
+      .cta { display: inline-block; padding: 12px 20px; border-radius: 999px; background: #2563eb; color: white; text-decoration: none; font-weight: 600; }
+      .cta.secondary { background: white; color: #2563eb; border: 1px solid #bfdbfe; }
+      section { margin: 40px 0; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
+      .card p { font-size: 16px; }
+      .muted { color: #64748b; font-size: 14px; }
+      ol { padding-left: 20px; }
+      li { margin-bottom: 8px; }
+      footer { border-top: 1px solid #e2e8f0; padding: 32px 24px 56px; text-align: center; color: #64748b; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/how-it-works">How it works</a>
+        <a href="/install-skill">Install skill</a>
+      </nav>
+      <h1>Install the VibeAny skill in under a minute</h1>
+      <p>{description}</p>
+      <a class="cta" href="#">Open on ClawHub</a>
+      <p class="muted">Works with OpenClaw + ClawHub.</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Quick install steps</h2>
+        <ol>
+          <li><strong>Open ClawHub</strong> — Go to the listing for the VibeAny skill.</li>
+          <li><strong>Click Install</strong> — Confirm permissions.</li>
+          <li><strong>Start using</strong> — Ask for deals or create alerts.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>What permissions are needed</h2>
+        <div class="grid">
+          <div class="card">
+            <p>Access to search queries you initiate</p>
+          </div>
+          <div class="card">
+            <p>Ability to send alert notifications</p>
+          </div>
+          <div class="card">
+            <p>Optional location for nearby airports (if enabled)</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Try these commands</h2>
+        <div class="grid">
+          <div class="card">
+            <p>“Find me flights to Tokyo in May.”</p>
+          </div>
+          <div class="card">
+            <p>“Alert me if NYC → LAX drops under $250.”</p>
+          </div>
+          <div class="card">
+            <p>“Show me weekend hotel deals in Seoul.”</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Support & troubleshooting</h2>
+        <p>Having issues installing? We can help.</p>
+        <a class="cta secondary" href="#">Visit support / FAQ</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Affiliate commissions may apply when you book through partner links (e.g., Aviasales).</p>
+    </footer>
+  </body>
+</html>

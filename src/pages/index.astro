@@ -1,0 +1,148 @@
+---
+const title = 'VibeAny – Official Site';
+const description = 'VibeAny helps you find and book the best travel deals with modular skills for flights, hotels, and alerts.';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <style>
+      :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; }
+      body { margin: 0; color: #0f172a; background: #f8fafc; }
+      a { color: inherit; }
+      header { padding: 40px 24px 56px; text-align: center; }
+      nav { display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; font-size: 14px; }
+      nav a { text-decoration: none; color: #475569; }
+      main { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
+      h1 { font-size: 44px; margin: 0 0 12px; }
+      h2 { margin: 0 0 12px; }
+      p { font-size: 18px; line-height: 1.6; margin: 0 0 16px; color: #1f2937; }
+      .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+      .cta { display: inline-block; padding: 12px 20px; border-radius: 999px; background: #2563eb; color: white; text-decoration: none; font-weight: 600; }
+      .cta.secondary { background: white; color: #2563eb; border: 1px solid #bfdbfe; }
+      .pill { display: inline-block; padding: 6px 12px; border-radius: 999px; background: #e2e8f0; color: #475569; font-size: 13px; margin-bottom: 12px; }
+      section { margin: 48px 0; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 20px; }
+      .card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
+      .card p { font-size: 16px; }
+      .split { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .muted { color: #64748b; font-size: 14px; }
+      footer { border-top: 1px solid #e2e8f0; padding: 32px 24px 56px; text-align: center; color: #64748b; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/how-it-works">How it works</a>
+        <a href="/install-skill">Install skill</a>
+      </nav>
+      <span class="pill">Travel deals platform</span>
+      <h1>VibeAny helps you find and book the best travel deals.</h1>
+      <p>{description}</p>
+      <div class="cta-row">
+        <a class="cta" href="#deals">Explore today’s deals</a>
+        <a class="cta secondary" href="/install-skill">Install the skill</a>
+      </div>
+      <p class="muted">No spam. Opt‑in alerts only.</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Trusted by deal‑hunters and weekend planners.</h2>
+        <p class="muted">Avg. savings, alert volume, and community stats coming soon.</p>
+      </section>
+
+      <section>
+        <h2>How it works</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>1. Search or browse</h3>
+            <p>Find deals by destination, route, or dates.</p>
+          </div>
+          <div class="card">
+            <h3>2. Get smart alerts</h3>
+            <p>We notify you when prices drop — not for every tiny change.</p>
+          </div>
+          <div class="card">
+            <h3>3. Book with confidence</h3>
+            <p>Complete booking on partner sites like Aviasales.</p>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a class="cta secondary" href="/how-it-works">See the full flow</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Modular products, one platform</h2>
+        <p class="muted">Skills are the building blocks powering each module.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Flight Deals module</h3>
+            <p>Track routes and catch drops fast.</p>
+            <a href="#deals">View flight deals</a>
+          </div>
+          <div class="card">
+            <h3>Hotel Deals module</h3>
+            <p>Curated hotel discounts from trusted partners.</p>
+            <a href="#deals">View hotel deals</a>
+          </div>
+          <div class="card">
+            <h3>Alerts module</h3>
+            <p>Set target prices and get notified only when they hit.</p>
+            <a href="#alerts">Set an alert</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="deals" class="split">
+        <div>
+          <h2>Today’s best deals</h2>
+          <p>Real‑time price drops and hand‑picked picks.</p>
+          <a class="cta" href="#">View all deals</a>
+        </div>
+        <div class="card">
+          <h3>Deal discovery preview</h3>
+          <p class="muted">Sample routes and price drops will appear here.</p>
+        </div>
+      </section>
+
+      <section id="alerts" class="split">
+        <div>
+          <h2>Alerts that actually matter</h2>
+          <p>Tell us your route, dates, or budget. We’ll notify you only when it’s a real drop.</p>
+          <a class="cta" href="#">Set a price alert</a>
+        </div>
+        <div class="card">
+          <h3>Get the VibeAny skill</h3>
+          <p>Add it once, then check deals or create alerts from anywhere.</p>
+          <a class="cta secondary" href="/install-skill">Install now</a>
+          <p class="muted">Works with OpenClaw + ClawHub.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>FAQ</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>How do you find deals?</h3>
+            <p>We monitor fare changes and surface genuine drops across providers.</p>
+          </div>
+          <div class="card">
+            <h3>Is it free?</h3>
+            <p>Browsing and alerts are free. Booking happens on provider sites.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>We may earn affiliate commissions when you book via links (e.g., Aviasales), at no extra cost to you.</p>
+      <p>Prices and availability are subject to change; final booking happens on partner sites.</p>
+    </footer>
+  </body>
+</html>

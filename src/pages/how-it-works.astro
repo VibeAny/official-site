@@ -1,0 +1,113 @@
+---
+const title = 'How it works – VibeAny';
+const description = 'From search to booking in three simple steps. Discover real price drops and book on trusted partners.';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <style>
+      :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; }
+      body { margin: 0; color: #0f172a; background: #f8fafc; }
+      a { color: inherit; }
+      header { padding: 40px 24px 48px; text-align: center; }
+      nav { display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; font-size: 14px; }
+      nav a { text-decoration: none; color: #475569; }
+      main { max-width: 920px; margin: 0 auto; padding: 0 24px 80px; }
+      h1 { font-size: 40px; margin: 0 0 12px; }
+      h2 { margin: 0 0 12px; }
+      p { font-size: 18px; line-height: 1.6; margin: 0 0 16px; color: #1f2937; }
+      .cta { display: inline-block; padding: 12px 20px; border-radius: 999px; background: #2563eb; color: white; text-decoration: none; font-weight: 600; }
+      .cta.secondary { background: white; color: #2563eb; border: 1px solid #bfdbfe; }
+      section { margin: 40px 0; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
+      .card p { font-size: 16px; }
+      .muted { color: #64748b; font-size: 14px; }
+      footer { border-top: 1px solid #e2e8f0; padding: 32px 24px 56px; text-align: center; color: #64748b; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/how-it-works">How it works</a>
+        <a href="/install-skill">Install skill</a>
+      </nav>
+      <h1>From search to booking in three simple steps</h1>
+      <p>{description}</p>
+      <a class="cta" href="#steps">Start searching deals</a>
+    </header>
+
+    <main>
+      <section id="steps" class="grid">
+        <div class="card">
+          <h2>1. Discover</h2>
+          <p>Search by route, destination, or dates. Or browse trending deals.</p>
+        </div>
+        <div class="card">
+          <h2>2. Decide</h2>
+          <p>Review price history and provider options to pick the best time.</p>
+        </div>
+        <div class="card">
+          <h2>3. Book</h2>
+          <p>Click through to a partner like Aviasales to complete booking.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Price alerts you control</h2>
+        <p>Set a target price or budget. We notify you only when the price actually drops.</p>
+        <a class="cta secondary" href="/install-skill">Create an alert</a>
+      </section>
+
+      <section>
+        <h2>Use it wherever you are</h2>
+        <p>Install the skill once and access deal search and alerts from OpenClaw.</p>
+      </section>
+
+      <section>
+        <h2>Transparency & trust</h2>
+        <div class="grid">
+          <div class="card">
+            <p>We surface real price drops, not bait.</p>
+          </div>
+          <div class="card">
+            <p>You always book on the provider’s site (e.g., Aviasales).</p>
+          </div>
+          <div class="card">
+            <p>No hidden fees added by us.</p>
+          </div>
+          <div class="card">
+            <p>Prices and availability are subject to change at booking.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>FAQ</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>What providers do you check?</h3>
+            <p>Major airline, hotel, and aggregator partners (details on the Deals page).</p>
+          </div>
+          <div class="card">
+            <h3>Do you sell my data?</h3>
+            <p>No. You control alerts and can delete them anytime.</p>
+          </div>
+          <div class="card">
+            <h3>How often do you scan prices?</h3>
+            <p>Continuously; alert timing depends on provider updates.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>We may earn commissions from partner links (e.g., Aviasales), which helps keep the service running.</p>
+    </footer>
+  </body>
+</html>
