@@ -10,27 +10,185 @@ const description = 'VibeAny helps you find and book the best travel deals with 
     <title>{title}</title>
     <meta name="description" content={description} />
     <style>
-      :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; }
-      body { margin: 0; color: #0f172a; background: #f8fafc; }
+      :root {
+        color-scheme: light;
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+        --bg: #f4f7fb;
+        --bg-strong: #e9f0ff;
+        --ink: #0b1220;
+        --ink-soft: #24314a;
+        --muted: #5f6b85;
+        --brand: #2f5bff;
+        --brand-dark: #1d3ee8;
+        --brand-ghost: rgba(47, 91, 255, 0.12);
+        --accent: #25c6d9;
+        --accent-soft: rgba(37, 198, 217, 0.15);
+        --card: #ffffff;
+        --border: rgba(12, 21, 40, 0.08);
+        --shadow: 0 22px 60px rgba(14, 28, 60, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: radial-gradient(circle at top, #f8fbff 0%, var(--bg) 55%, #eef3fb 100%);
+      }
       a { color: inherit; }
-      header { padding: 40px 24px 56px; text-align: center; }
-      nav { display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; font-size: 14px; }
-      nav a { text-decoration: none; color: #475569; }
-      main { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
-      h1 { font-size: 44px; margin: 0 0 12px; }
-      h2 { margin: 0 0 12px; }
-      p { font-size: 18px; line-height: 1.6; margin: 0 0 16px; color: #1f2937; }
-      .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-      .cta { display: inline-block; padding: 12px 20px; border-radius: 999px; background: #2563eb; color: white; text-decoration: none; font-weight: 600; }
-      .cta.secondary { background: white; color: #2563eb; border: 1px solid #bfdbfe; }
-      .pill { display: inline-block; padding: 6px 12px; border-radius: 999px; background: #e2e8f0; color: #475569; font-size: 13px; margin-bottom: 12px; }
-      section { margin: 48px 0; }
-      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 20px; }
-      .card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
-      .card p { font-size: 16px; }
-      .split { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-      .muted { color: #64748b; font-size: 14px; }
-      footer { border-top: 1px solid #e2e8f0; padding: 32px 24px 56px; text-align: center; color: #64748b; font-size: 14px; }
+      img { max-width: 100%; display: block; }
+
+      header {
+        position: relative;
+        padding: 32px 24px 80px;
+        overflow: hidden;
+      }
+      header::before {
+        content: '';
+        position: absolute;
+        inset: -120px -80px auto;
+        height: 420px;
+        background: radial-gradient(circle at 20% 20%, rgba(47, 91, 255, 0.2), transparent 55%),
+          radial-gradient(circle at 80% 10%, rgba(37, 198, 217, 0.22), transparent 60%);
+        z-index: 0;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        margin-bottom: 28px;
+        font-size: 14px;
+        position: relative;
+        z-index: 2;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 999px;
+        transition: all 0.2s ease;
+      }
+      nav a:hover { background: var(--brand-ghost); color: var(--brand-dark); }
+
+      .hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(47, 91, 255, 0.1);
+        color: var(--brand-dark);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+      h1 { font-size: clamp(36px, 4vw, 52px); margin: 14px 0 16px; line-height: 1.05; }
+      h2 { margin: 0 0 12px; font-size: clamp(24px, 3vw, 32px); }
+      h3 { margin: 0 0 8px; font-size: 18px; }
+      p { font-size: 18px; line-height: 1.6; margin: 0 0 16px; color: var(--ink-soft); }
+
+      .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 999px;
+        background: linear-gradient(120deg, var(--brand) 0%, #3c7bff 55%, var(--accent) 100%);
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 12px 30px rgba(47, 91, 255, 0.28);
+      }
+      .cta.secondary {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--brand-dark);
+        border: 1px solid rgba(47, 91, 255, 0.2);
+        box-shadow: none;
+      }
+      .cta.secondary:hover { background: white; }
+
+      .hero-visual {
+        background: linear-gradient(160deg, rgba(47, 91, 255, 0.1), rgba(37, 198, 217, 0.12));
+        border-radius: 28px;
+        padding: 26px;
+        border: 1px solid rgba(47, 91, 255, 0.18);
+        box-shadow: var(--shadow);
+      }
+      .hero-visual svg { width: 100%; height: auto; }
+      .hero-metric {
+        display: flex;
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .metric {
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 14px;
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+        font-size: 13px;
+        color: var(--muted);
+        min-width: 140px;
+      }
+      .metric strong { display: block; color: var(--ink); font-size: 20px; }
+
+      main { max-width: 1080px; margin: 0 auto; padding: 0 24px 96px; }
+      section { margin: 60px 0; }
+      section.alt {
+        background: linear-gradient(120deg, rgba(47, 91, 255, 0.08), rgba(37, 198, 217, 0.08));
+        border-radius: 32px;
+        padding: 40px;
+        border: 1px solid rgba(47, 91, 255, 0.12);
+      }
+      .section-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(47, 91, 255, 0.3), transparent);
+        margin: 48px 0;
+      }
+
+      .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 22px; }
+      .card {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 22px;
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 40px rgba(12, 21, 40, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .card:hover { transform: translateY(-4px); box-shadow: 0 26px 50px rgba(12, 21, 40, 0.12); }
+      .card p { font-size: 16px; color: var(--muted); }
+      .icon {
+        width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+        background: var(--brand-ghost); color: var(--brand-dark); margin-bottom: 12px;
+      }
+
+      .split { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: center; }
+      .muted { color: var(--muted); font-size: 14px; }
+
+      footer {
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
+        padding: 40px 24px 64px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+        background: #f0f4fb;
+      }
+
+      @media (max-width: 720px) {
+        .hero-metric { flex-direction: column; }
+        section.alt { padding: 28px; }
+      }
     </style>
   </head>
   <body>
@@ -40,34 +198,67 @@ const description = 'VibeAny helps you find and book the best travel deals with 
         <a href="/how-it-works">How it works</a>
         <a href="/install-skill">Install skill</a>
       </nav>
-      <span class="pill">Travel deals platform</span>
-      <h1>VibeAny helps you find and book the best travel deals.</h1>
-      <p>{description}</p>
-      <div class="cta-row">
-        <a class="cta" href="#deals">Explore today’s deals</a>
-        <a class="cta secondary" href="/install-skill">Install the skill</a>
+      <div class="hero">
+        <div>
+          <span class="badge">Travel deals platform</span>
+          <h1>VibeAny helps you find and book the best travel deals.</h1>
+          <p>{description}</p>
+          <div class="cta-row">
+            <a class="cta" href="#deals">Explore today’s deals</a>
+            <a class="cta secondary" href="/install-skill">Install the skill</a>
+          </div>
+          <p class="muted">No spam. Opt‑in alerts only.</p>
+          <div class="hero-metric">
+            <div class="metric"><strong>24/7</strong> live fare monitoring</div>
+            <div class="metric"><strong>Smart</strong> alerts only on real drops</div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="18" y="28" width="384" height="244" rx="24" fill="white" stroke="rgba(47,91,255,0.15)" />
+            <path d="M50 92H365" stroke="rgba(37,198,217,0.25)" stroke-width="2" />
+            <circle cx="82" cy="88" r="10" fill="rgba(47,91,255,0.25)" />
+            <circle cx="120" cy="88" r="10" fill="rgba(37,198,217,0.3)" />
+            <circle cx="158" cy="88" r="10" fill="rgba(47,91,255,0.2)" />
+            <path d="M76 180C110 140 170 150 208 120C246 90 320 110 346 80" stroke="url(#paint0)" stroke-width="8" stroke-linecap="round" />
+            <circle cx="346" cy="80" r="12" fill="white" stroke="rgba(47,91,255,0.4)" stroke-width="4" />
+            <rect x="70" y="198" width="120" height="20" rx="10" fill="rgba(47,91,255,0.12)" />
+            <rect x="70" y="226" width="220" height="20" rx="10" fill="rgba(37,198,217,0.14)" />
+            <rect x="70" y="254" width="180" height="20" rx="10" fill="rgba(47,91,255,0.1)" />
+            <defs>
+              <linearGradient id="paint0" x1="76" y1="180" x2="346" y2="80" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2F5BFF" />
+                <stop offset="1" stop-color="#25C6D9" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
       </div>
-      <p class="muted">No spam. Opt‑in alerts only.</p>
     </header>
 
     <main>
-      <section>
+      <section class="alt">
         <h2>Trusted by deal‑hunters and weekend planners.</h2>
         <p class="muted">Avg. savings, alert volume, and community stats coming soon.</p>
       </section>
+
+      <div class="section-divider"></div>
 
       <section>
         <h2>How it works</h2>
         <div class="grid">
           <div class="card">
+            <div class="icon">🔎</div>
             <h3>1. Search or browse</h3>
             <p>Find deals by destination, route, or dates.</p>
           </div>
           <div class="card">
+            <div class="icon">🔔</div>
             <h3>2. Get smart alerts</h3>
             <p>We notify you when prices drop — not for every tiny change.</p>
           </div>
           <div class="card">
+            <div class="icon">✈️</div>
             <h3>3. Book with confidence</h3>
             <p>Complete booking on partner sites like Aviasales.</p>
           </div>
@@ -77,21 +268,24 @@ const description = 'VibeAny helps you find and book the best travel deals with 
         </div>
       </section>
 
-      <section>
+      <section class="alt">
         <h2>Modular products, one platform</h2>
         <p class="muted">Skills are the building blocks powering each module.</p>
         <div class="grid">
           <div class="card">
+            <div class="icon">🧭</div>
             <h3>Flight Deals module</h3>
             <p>Track routes and catch drops fast.</p>
             <a href="#deals">View flight deals</a>
           </div>
           <div class="card">
+            <div class="icon">🏨</div>
             <h3>Hotel Deals module</h3>
             <p>Curated hotel discounts from trusted partners.</p>
             <a href="#deals">View hotel deals</a>
           </div>
           <div class="card">
+            <div class="icon">⚡</div>
             <h3>Alerts module</h3>
             <p>Set target prices and get notified only when they hit.</p>
             <a href="#alerts">Set an alert</a>
