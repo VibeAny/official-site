@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://vibeany.github.io/official-site',
+  site: 'https://vibemcp.net',
   output: 'static',
 });
